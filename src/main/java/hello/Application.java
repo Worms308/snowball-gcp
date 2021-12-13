@@ -59,8 +59,7 @@ public class Application {
   @PostMapping("/**")
   public String index(@RequestBody ArenaUpdate arenaUpdate) {
     System.out.println(arenaUpdate);
-    PlayerState myState = arenaUpdate.arena.state.get("https://34.120.1.153.sslip.io/");
-    System.out.println(myState);
+    PlayerState myState = arenaUpdate.arena.state.get(arenaUpdate._links.self.href);
     Collection<PlayerState> players = arenaUpdate.arena.state.values();
 
     if (myState != null && isEnemyInFront(players, myState)) {
