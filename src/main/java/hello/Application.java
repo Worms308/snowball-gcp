@@ -127,11 +127,11 @@ public class Application {
     System.out.println(arenaUpdate);
     writeCommittedStream.send(arenaUpdate.arena);
     PlayerState myState = arenaUpdate.arena.state.get("https://34.120.1.153.sslip.io/");
-      System.out.println("players " + String.join("", arenaUpdate.arena.state.keySet()));
     System.out.println(myState);
     Collection<PlayerState> players = arenaUpdate.arena.state.values();
 
     if (myState != null && isEnemyInFront(players, myState)) {
+        System.out.println("found enemy");
         return "T";
     } else {
         return new String[]{"F", "L", "R", "T"}[random.nextInt(4)];
