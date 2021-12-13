@@ -141,10 +141,10 @@ public class Application {
         int myX = myState.x;
         int myY = myState.y;
         switch (myState.direction.toUpperCase()) {
-            case "N": myX--; break;
-            case "S": myX++; break;
-            case "W": myY--; break;
-            case "E": myY++; break;
+            case "N": myY--; break;
+            case "S": myY++; break;
+            case "W": myX--; break;
+            case "E": myX++; break;
         }
 
         final int myFrontX = myX;
