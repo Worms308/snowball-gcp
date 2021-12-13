@@ -59,13 +59,14 @@ public class Application {
   @PostMapping("/**")
   public String index(@RequestBody ArenaUpdate arenaUpdate) {
     System.out.println(arenaUpdate);
-    PlayerState myState = arenaUpdate.arena.state.get(arenaUpdate._links.self.href);
+    PlayerState myState = arenaUpdate.arena.state.get("https://34.120.1.153.sslip.io/");
+    System.out.println(myState);
     Collection<PlayerState> players = arenaUpdate.arena.state.values();
 
     if (myState != null && isEnemyInFront(players, myState)) {
         return "T";
     } else {
-        return new String[]{"F", "L", "R"}[random.nextInt(3)];
+        return new String[]{"F", "L", "R", "T"}[random.nextInt(4)];
     }
   }
 
