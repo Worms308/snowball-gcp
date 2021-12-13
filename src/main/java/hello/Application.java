@@ -59,7 +59,8 @@ public class Application {
   @PostMapping("/**")
   public String index(@RequestBody ArenaUpdate arenaUpdate) {
     System.out.println(arenaUpdate);
-    PlayerState myState = arenaUpdate.arena.state.get("https://java-springboot-arljdjm7sq-uc.a.run.app/");
+    PlayerState myState = arenaUpdate.arena.state.get("https://34.120.1.153.sslip.io/");
+    System.out.println(myState);
     Collection<PlayerState> players = arenaUpdate.arena.state.values();
 
     if (myState != null && isEnemyInFront(players, myState)) {
